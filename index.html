@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>واجهة بسيطة</title>
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --primary:#2563eb;
+      --border:#e5e7eb;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family: Tahoma, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.8;
+    }
+    header{
+      background:var(--card);
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    .container{max-width:980px; margin:0 auto; padding:16px;}
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand{
+      font-weight:700;
+      font-size:18px;
+      color:var(--primary);
+      text-decoration:none;
+    }
+    .links a{
+      text-decoration:none;
+      color:var(--muted);
+      margin-left:14px;
+      font-size:14px;
+    }
+    .links a:hover{color:var(--text);}
+    .hero{
+      padding:40px 0 24px;
+    }
+    .hero-box{
+      background:linear-gradient(135deg, #dbeafe, #eff6ff);
+      border:1px solid #bfdbfe;
+      border-radius:16px;
+      padding:28px;
+    }
+    .hero h1{margin:0 0 8px; font-size:28px;}
+    .hero p{margin:0 0 16px; color:var(--muted);}
+    .btns{display:flex; gap:10px; flex-wrap:wrap;}
+    .btn{
+      border:1px solid var(--border);
+      background:var(--card);
+      padding:10px 14px;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:14px;
+    }
+    .btn.primary{
+      background:var(--primary);
+      color:#fff;
+      border-color:var(--primary);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:16px;
+    }
+    .card h3{margin:0 0 6px; font-size:16px;}
+    .card p{margin:0; color:var(--muted); font-size:14px;}
+    .form{
+      margin-top:14px;
+      display:grid;
+      gap:10px;
+    }
+    input, textarea{
+      width:100%;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      font-family: inherit;
+      font-size:14px;
+      background:#fff;
+    }
+    textarea{min-height:110px; resize:vertical;}
+    footer{
+      margin-top:26px;
+      padding:18px 0;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+    @media (max-width: 780px){
+      .grid{grid-template-columns: 1fr;}
+      .links{display:none;}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">مشروعي</a>
+      <div class="links">
+        <a href="#services">الخدمات</a>
+        <a href="#about">عنّا</a>
+        <a href="#contact">تواصل</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-box">
+        <h1>واجهة HTML بسيطة</h1>
+        <p>قالب سريع وجاهز: عنوان + كروت خدمات + نموذج تواصل.</p>
+        <div class="btns">
+          <button class="btn primary" onclick="alert('تم!')">زر أساسي</button>
+          <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            تواصل معنا
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 style="margin:18px 0 8px;">الخدمات</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>خدمة 1</h3>
+          <p>وصف قصير للخدمة الأولى بشكل مرتب.</p>
+        </div>
+        <div class="card">
+          <h3>خدمة 2</h3>
+          <p>وصف قصير للخدمة الثانية بشكل مرتب.</p>
+        </div>
+        <div class="card">
+          <h3>خدمة 3</h3>
+          <p>وصف قصير للخدمة الثالثة بشكل مرتب.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 style="margin:22px 0 8px;">عنّا</h2>
+      <div class="card">
+        <p>
+          هذا نص تعريفي بسيط. بدّليه بمعلومات مشروعك/فريقك.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 style="margin:22px 0 8px;">تواصل</h2>
+      <div class="card">
+        <form class="form" onsubmit="event.preventDefault(); alert('تم إرسال الرسالة (تجريبي).');">
+          <input type="text" placeholder="الاسم" required />
+          <input type="email" placeholder="البريد الإلكتروني" required />
+          <textarea placeholder="رسالتك..." required></textarea>
+          <button class="btn primary" type="submit">إرسال</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 — واجهة بسيطة للتجارب
+    </footer>
+  </main>
+</body>
+</html>
